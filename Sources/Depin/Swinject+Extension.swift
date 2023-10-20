@@ -13,3 +13,15 @@ public func ~><Service>(container: Container, data: (type: Service.Type, name: S
 public func ~><Service>(resolver: Resolver, type: Service.Type) -> Service {
     resolver.resolve(type)!
 }
+
+public extension Container {
+    func autoResolve<T>() -> T {
+        resolve(T.self)!
+    }
+}
+
+public extension Resolver {
+    func autoResolve<T>() -> T {
+        resolve(T.self)!
+    }
+}
