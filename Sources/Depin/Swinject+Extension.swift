@@ -38,7 +38,7 @@ public extension Container {
         name: String? = nil,
         factory: @escaping () -> Service
     ) -> ServiceEntry<Service> {
-        _register(serviceType, factory: factory, name: name)
+        _register(serviceType, factory:  { (_: Resolver) in factory() }, name: name)
     }
 }
 
