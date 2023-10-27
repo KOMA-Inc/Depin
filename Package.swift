@@ -18,12 +18,13 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(url: "https://github.com/Swinject/Swinject.git", from: "2.8.0")
+        .package(url: "https://github.com/Swinject/Swinject.git", from: "2.8.0"),
+        .package(url: "https://github.com/Swinject/SwinjectAutoregistration", from: "2.8.3")
     ],
     targets: [
         .target(
             name: "Depin",
-            dependencies: ["Swinject"]
+            dependencies: ["Swinject", "SwinjectAutoregistration"]
         )
     ]
 )
