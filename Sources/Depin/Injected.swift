@@ -7,7 +7,10 @@ public final class Injected<Service> {
     private var dependenciesContainer: Container
 
     private let serviceName: ServiceName?
-    private lazy var value = dependenciesContainer ~> (Service.self, serviceName?.name)
+
+    private lazy var value = dependenciesContainer
+        .synchronize()
+        .resolve(Service.self, name: serviceName?.name)!
 
     public var wrappedValue: Service {
         value
